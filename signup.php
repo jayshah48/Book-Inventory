@@ -27,8 +27,8 @@
         else{
             $u = mysqli_real_escape_string($dbc, trim($usr));
         }
-        if(empty($pass)){
-            $errors[] =  "Password is empty";
+        if(!preg_match('/^(?=.*\d)(?=.*[A_Za-z])[0-9A-Za-z!@*$]{8,}$/', $pass)){
+            $errors[] = "Please enter 8 characters password using the combination of digit , alphabet , @ ,* and $";
         }
         else{
             $p = mysqli_real_escape_string($dbc, trim($pass));
